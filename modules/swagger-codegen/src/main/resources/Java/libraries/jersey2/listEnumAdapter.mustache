@@ -1,0 +1,16 @@
+public static class List{{name}}Adapter implements JsonbAdapter<List<{{datatypeWithEnum}}>, JsonArray> {
+    @Override
+    public JsonArray adaptToJson(List<{{datatypeWithEnum}}> value) {
+        JsonArrayBuilder result = Json.createArrayBuilder();
+        value.stream().forEach(p -> result.add(p.value()));
+        return result.build();
+    }
+    @Override
+    public List<{{datatypeWithEnum}}> adaptFromJson(JsonArray jsonElements) throws Exception {
+        List<{{datatypeWithEnum}}> enums = new ArrayList<>();
+        jsonElements.forEach(e -> {
+        enums.add({{datatypeWithEnum}}.fromValue(e.toString()));
+        });
+        return enums;
+    }
+}

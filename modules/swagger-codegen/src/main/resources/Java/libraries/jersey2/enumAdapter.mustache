@@ -1,0 +1,13 @@
+public static class {{datatypeWithEnum}}Adapter implements JsonbAdapter<{{datatypeWithEnum}}, String> {
+
+    @Override
+    public String adaptToJson({{datatypeWithEnum}} value) {
+        return value.value();
+    }
+
+    @Override
+    public {{datatypeWithEnum}} adaptFromJson(String s) {
+        return {{datatypeWithEnum}}.fromValue(s);
+    }
+}
+

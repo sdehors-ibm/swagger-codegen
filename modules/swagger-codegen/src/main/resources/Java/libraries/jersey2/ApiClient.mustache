@@ -716,7 +716,7 @@ public class ApiClient {
         else
           return new ApiResponse<>(statusCode, responseHeaders, deserialize(response, returnType));
       } else {
-        String message = "error";
+        String message = "Error invoking API : " + response.getStatusInfo().getReasonPhrase();
         String respBody = null;
         if (response.hasEntity()) {
           try {
